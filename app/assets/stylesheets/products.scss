@@ -1,0 +1,163 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* you only need width to set up columns; all columns are 100%-width by default, so we start
+   from a one-column mobile layout and gradually improve it according to available screen space */
+
+@media only screen and (max-width: 34em) {
+  .book { width: 100%; }
+  .image { text-align: center;}
+  p, ul {
+    font-size: 0.875em;
+  }
+  .container {
+    padding: 1em;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  .book_filter h1 {
+    font-size: 1.4em;
+  }
+  h2 {
+    font-size: 1.1em;
+  }
+}
+
+@media only screen and (min-width: 54em) {
+  .book { width: 50%; }
+  .image { width: 33.33%;  }
+  .description { width: 66.66%;}
+  .book_image { width: 18%; }
+  .book_description { width: 82%}
+  li input {
+    width: 25em;
+  }
+  h1 {
+    font-size: 2.0em;
+  }
+  .book_filter h1 {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (min-width: 76em) {
+  .image { width: 25%;  }
+  .description { width: 75%;}
+  li input {
+    width: 30em;
+  }
+  h1 {
+    font-size: 2.3em;
+  }
+  .book_filter h1 {
+    font-size: 2.0em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+///////////////////////////////////////////////
+
+h1 {
+  font-weight: normal;
+}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+  overflow: hidden;
+  background-color: #2c3e50;
+}
+
+ul.topnav li {
+  float: left;
+}
+
+ul.topnav ul.right {
+  float: right;
+}
+
+ul.topnav ul.right li a {
+  color: white;
+}
+
+ul.topnav li a, input, button {
+  display: inline-block;
+  padding: 12px 12px;
+  margin: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.logo {
+  color: lightseagreen;
+  font-weight: bold;
+}
+
+li input {
+  margin: 5px;
+  border-radius: 5px;
+}
+
+li button {
+  border-radius: 5px;
+  border-color: transparent;
+  background-color: lightgray;
+}
+
+.book_filter h1 {
+  font-style: italic;
+}
+
+.book {
+  margin-bottom: 30px;
+}
+
+.image img {
+  width: 150px;
+  height: 210px;
+}
+
+.description, .book_description {
+  text-align: justify;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr:nth-child(odd) {
+  background-color:#f7f7f7;
+
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+table tr td button {
+  border-radius: 5px;
+  border-color: transparent;
+  margin-left: 0;
+  a {
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+  }
+}
+
+button.download {
+  background-color: lightseagreen;
+}
+
+button.buy {
+  background-color: orange;
+}

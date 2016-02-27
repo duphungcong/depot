@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col book_filter">
+  <h1>Top eBooks</h1>
+</div>
+
+<% @products.each do |product| %>
+    <div class="col book">
+      <div class="row">
+        <div class="col image">
+          <%= image_tag(product.image_url) %>
+        </div>
+        <div class="col description">
+          <p><%= link_to product.title, product %></p>
+          <p><%= truncate(strip_tags(product.description), length: 440) %></p>
+          <p>Price: <%= number_to_currency(product.price) %></p>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+<%= link_to 'New Product', new_product_path %>
