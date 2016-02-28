@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+/* GLOBAL */
+
 html {
     font-family: "Helvetica Neue", "Arial", sans-serif
 }
@@ -22,9 +25,69 @@ html {
     padding: 1em 0;
 }
 
+h1 {
+    font-weight: normal;
+}
+
+@media only screen and (min-width: 14em) {
+    .book { width: 100%; }
+    .image { text-align: center;}
+    p, ul {
+        font-size: 0.875em;
+    }
+    .container {
+        padding: 1em;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .book_filter h1 {
+        font-size: 1.4em;
+    }
+    h2 {
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (min-width: 54em) {
+    .book { width: 50%; }
+    .image { width: 33.33%;  }
+    .description { width: 66.66%;}
+    .book_image { width: 18%; }
+    .book_description { width: 82%}
+    li input {
+        width: 25em;
+    }
+    h1 {
+        font-size: 2.0em;
+    }
+    .book_filter h1 {
+        font-size: 1.6em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+}
+
+@media only screen and (min-width: 76em) {
+    .image { width: 25%;  }
+    .description { width: 75%;}
+    li input {
+        width: 30em;
+    }
+    h1 {
+        font-size: 2.3em;
+    }
+    .book_filter h1 {
+        font-size: 2.0em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
 @media only screen and (max-width: 34em) {
-    ul.topnav ul.right,
-    ul.topnav li {
+    ul.topnav ul.right, ul.topnav li {
         float: none;
     }
 }
