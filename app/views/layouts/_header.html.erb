@@ -3,6 +3,7 @@
   <li><input type="text" placeholder="Search by Title, Author or ISBN"></li>
   <li><button class="search">Search</button></li>
   <ul class="topnav right">
+    <li><%= link_to "Your cart ( #{@current_cart.line_items.count} )", cart_path(@current_cart) %></li>
     <li><%= link_to 'Login', "#" %></li>
     <li><%= link_to 'Register', "#" %></li>
   </ul>

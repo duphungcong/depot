@@ -29,6 +29,15 @@ h1 {
     font-weight: normal;
 }
 
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
 @media only screen and (min-width: 14em) {
     .book { width: 100%; }
     .image { text-align: center;}

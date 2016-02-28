@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="col" id="notice"><%= notice %></div>
 
 <div class="col">
   <h1>Your cart</h1>
 </div>
 
-<ul>
-  <% @cart.line_items.each do |item| %>
-    <li><%= item.product.title %></li>
-  <% end %>
-</ul>
+<div class="col">
+  <table class="cart_detail">
+    <tr>
+      <th>Book</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+    <% @cart.line_items.each do |item| %>
+    <tr>
+      <td><%= item.product.title %></td>
+      <td><%= number_to_currency(item.product.price) %></td>
+      <td>yyy</td>
+      <td>zzz</td>
+    </tr>
+    <% end %>
+  </table>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+  <%= button_to 'Check Out', '#' %>
+</div>
