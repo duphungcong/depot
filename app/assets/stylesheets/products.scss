@@ -35,22 +35,20 @@ table tr:nth-child(even) {
   background-color: #ffffff;
 }
 
-button.download, button.add_to_cart, .button_to input {
+a.download, .button_to input {
   border-radius: 5px;
   border-color: transparent;
   margin-left: 0;
-}
-
-button.download {
-  background-color: lightseagreen;
-}
-
-button.add_to_cart, .button_to input {
-  background-color: orange;
-}
-
-button.download a, button.add_to_cart a, .button_to input {
   color: black;
   font-size: small;
   padding: 0.5em;
+}
+
+a.download {
+  background-color: lightseagreen;
+  padding: 0.7em;
+}
+
+.button_to input {
+  background-color: orange;
 }

@@ -49,8 +49,8 @@
           <td>PDF</td>
         </tr>
         <tr>
-          <td><button type="button" class="download"><%= link_to 'Download', "#" %></button></td>
-          <td><button type="button" class="add_to_cart"><%= link_to 'Add to Cart', "#" %></button></td>
+          <td><%= link_to 'Download', "#", class: 'download' %></td>
+          <td><%= button_to 'Add to Cart', line_items_path(product_id: @product) %></td>
         </tr>
       </table>
     </div>

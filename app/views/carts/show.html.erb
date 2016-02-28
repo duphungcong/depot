@@ -8,19 +8,19 @@
   <table class="cart_detail">
     <tr>
       <th>Book</th>
-      <th>Unit Price</th>
+      <th>Price</th>
       <th>Quantity</th>
-      <th>Total</th>
     </tr>
+    <% total = 0 %>
     <% @cart.line_items.each do |item| %>
+        <% total += item.quantity * item.product.price %>
     <tr>
       <td><%= item.product.title %></td>
       <td><%= number_to_currency(item.product.price) %></td>
-      <td>yyy</td>
-      <td>zzz</td>
+      <td><%= item.quantity %></td>
     </tr>
     <% end %>
   </table>
-
+  Total: <%= number_to_currency(total) %>
   <%= button_to 'Check Out', '#' %>
 </div>
