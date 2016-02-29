@@ -7,6 +7,14 @@ table.cart_detail {
   th, td {
     border: 1px solid black;
     padding: 5px;
-    text-align: justify;
+    text-align: left;
   }
+}
+
+.button_to input.check_out {
+  background-color: lightseagreen;
+}
+
+.button_to input.empty_cart {
+  background-color: coral;
 }

@@ -8,12 +8,10 @@
   <table class="cart_detail">
     <tr>
       <th>Book</th>
-      <th>Price</th>
+      <th>Unit price</th>
       <th>Quantity</th>
     </tr>
-    <% total = 0 %>
     <% @cart.line_items.each do |item| %>
-        <% total += item.quantity * item.product.price %>
     <tr>
       <td><%= item.product.title %></td>
       <td><%= number_to_currency(item.product.price) %></td>
@@ -21,6 +19,8 @@
     </tr>
     <% end %>
   </table>
-  Total: <%= number_to_currency(total) %>
-  <%= button_to 'Check Out', '#' %>
+  <p>Total: <b><%= number_to_currency(@cart.total_price) %></b></p>
+  <%= button_to 'Check Out', '#', class: 'check_out' %>
+  <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'empty_cart' %><br>
+  <%= link_to 'Continue shopping >>>', root_path %>
 </div>
