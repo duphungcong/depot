@@ -11,7 +11,7 @@
     </div>
     <div class="col book_description">
       <p><%= @product.description %></p>
-      <table>
+      <table class="odd_even_row">
         <tr>
           <td>Price</td>
           <td><%= number_to_currency(@product.price) %></td>

@@ -5,7 +5,7 @@
 </div>
 
 <div class="col">
-  <table class="cart_detail">
+  <table class="cell_border">
     <tr>
       <th>Book</th>
       <th>Unit price</th>
@@ -20,7 +20,8 @@
     <% end %>
   </table>
   <p>Total: <b><%= number_to_currency(@cart.total_price) %></b></p>
-  <%= button_to 'Check Out', '#', class: 'check_out' %>
-  <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'empty_cart' %><br>
+  <%= button_to 'Check Out', new_order_path, method: :get, class: 'check_out click' %>
+  <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'empty_cart click' %><br>
+  <hr>
   <%= link_to 'Continue shopping >>>', root_path %>
 </div>

@@ -1,16 +1,6 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-table.cart_detail {
-  border: 1px solid black;
-  border-collapse: collapse;
-  th, td {
-    border: 1px solid black;
-    padding: 5px;
-    text-align: left;
-  }
-}
-
 .button_to input.check_out {
   background-color: lightseagreen;
 }

@@ -1,0 +1,26 @@
+<div class="col"><p id="notice"><%= notice %></p></div>
+
+<div class="col">
+  Your order detail:
+  <table class="cell_border">
+    <tr>
+      <th>Name</th>
+      <td><%= @order.name %></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td><%= @order.address %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @order.email %></td>
+    </tr>
+    <tr>
+      <th>Pay Type</th>
+      <td><%= @order.pay_type %></td>
+    </tr>
+  </table>
+  <%= link_to 'Edit', edit_order_path(@order) %> |
+  <%= link_to 'Back', orders_path %>
+</div>
+

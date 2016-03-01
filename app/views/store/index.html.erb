@@ -15,7 +15,7 @@
           <p><%= truncate(strip_tags(product.description), length: 440) %></p>
           <div>
             <span>Price: <%= number_to_currency(product.price) %></span>
-            <%= button_to 'Add to cart', line_items_path(product_id: product) %>
+            <%= button_to 'Add to cart', line_items_path(product_id: product), class: 'click' %>
           </div>
         </div>
       </div>

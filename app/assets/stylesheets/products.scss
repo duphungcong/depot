@@ -22,19 +22,6 @@
   text-align: justify;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table tr:nth-child(odd) {
-  background-color:#f7f7f7;
-
-}
-table tr:nth-child(even) {
-  background-color: #ffffff;
-}
-
 a.download, .button_to input {
   border-radius: 5px;
   border-color: transparent;
