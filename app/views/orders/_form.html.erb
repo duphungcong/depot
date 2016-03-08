@@ -28,6 +28,7 @@
     <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
   </div>
   <div class="actions">
+    <%= link_to 'Back', orders_path %>
     <%= f.submit 'Place Order', class: 'submit click' %>
   </div>
 <% end %>

@@ -18,7 +18,12 @@ class OrdersController < ApplicationController
       redirect_to store_index_url, notice: 'Your cart is empty'
       return
     end
-    @order = Order.new
+    if @current_user.nil?
+      @order = Order.new
+    else
+      @order = Order.new(:name => @current_user.name)
+    end
+
   end
 
   # GET /orders/1/edit

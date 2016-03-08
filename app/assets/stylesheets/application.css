@@ -74,6 +74,7 @@ table.odd_even_row tr:nth-child(even) {
 @media only screen and (min-width: 14em) {
     .book { width: 100%; }
     .image { text-align: center;}
+    .depot_form { width: 100% }
     ul {
         font-size: 0.875em;
     }
@@ -93,6 +94,7 @@ table.odd_even_row tr:nth-child(even) {
 
 @media only screen and (min-width: 54em) {
     .book { width: 50%; }
+    .depot_form { width: 50% }
     .image { width: 33.33%;  }
     .description { width: 66.66%;}
     .book_image { width: 18%; }

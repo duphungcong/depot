@@ -1,10 +1,15 @@
 <ul class="topnav">
-  <li><%= link_to 'IT eBooks', root_path, class: 'logo' %></li>
+  <li><%= link_to 'IT eBooks', store_path, class: 'logo' %></li>
   <li><input type="text" placeholder="Search by Title, Author or ISBN"></li>
   <li><button class="search click">Search</button></li>
   <ul class="topnav right">
     <li><%= link_to "Your cart ( #{ @current_cart.total_item } )", cart_path(@current_cart) %></li>
-    <li><%= link_to 'Login', "#" %></li>
-    <li><%= link_to 'Register', "#" %></li>
+    <% if @current_user.nil? %>
+      <li><%= link_to 'Login', login_path %></li>
+      <li><%= link_to 'Register', new_user_path %></li>
+    <% else %>
+      <li><%= link_to @current_user.name, '#' %></li>
+      <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+    <% end %>
   </ul>
 </ul>

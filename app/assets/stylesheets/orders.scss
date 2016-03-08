@@ -1,45 +1,36 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.order_form {
-  margin: 2em 0 1em 0;
+.depot_form {
+  //border: 1px solid blue;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
 
-  legend {
-    color: lightseagreen;
-    padding: 0.2em 1em;
+  h2 {
+    text-align: center;
   }
 
-  form {
-    .field, .actions {
-      padding-top-top: 1em;
-      padding-bottom: 1em;
-    }
+  .field, .actions {
+    //border: 1px solid black;
+    margin: 0;
+    padding-top: 1em;
 
     label {
-      float: left;
-      width: 5em;
-      text-align: right;
-      padding-top: 0.2em;
-      margin-right: 0.1em;
+      font-weight: bold;
     }
-
-    input, textarea, select {
-      margin-left: 0.5em;
-      border: 1px solid black;
+    
+    input, textarea {
+      width: 100%;
+      box-sizing:border-box;
     }
+  }
 
-    .submit {
-      border-radius: 5px;
+  .actions {
+    input {
+      border-radius: 3px;
       border-color: transparent;
-      margin-left: 0;
-      color: black;
-      font-size: small;
-      padding: 0.5em;
       background-color: lightseagreen;
-    }
-
-    br {
-      display: none;
     }
   }
 }
