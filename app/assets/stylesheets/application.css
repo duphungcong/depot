@@ -133,5 +133,6 @@ table.odd_even_row tr:nth-child(even) {
 @media only screen and (max-width: 34em) {
     ul.topnav ul.right, ul.topnav li {
         float: none;
+        text-align: center;
     }
 }

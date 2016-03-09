@@ -1,6 +1,7 @@
-<div class="col"><p id="notice"><%= notice %></p></div>
-
 <div class="col">
+  <p>It's <%= Time.now %></p>
+  <p>We have <span><strong><%= pluralize(@orders.count, "order") %></strong></span></p>
+
   <h1>Listing Orders</h1>
 
   <table class="cell_border">

@@ -20,6 +20,9 @@
 
 .description, .book_description {
   text-align: justify;
+  p {
+    margin-top: 0px;
+  }
 }
 
 a.download, .button_to input {
@@ -38,4 +41,8 @@ a.download {
 
 .button_to input {
   background-color: orange;
+}
+
+.button_to {
+  display: inline-block;
 }

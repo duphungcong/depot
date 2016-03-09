@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authorize_admin, only: [:index, :edit, :update]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -15,13 +16,13 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     if @current_cart.line_items.empty?
-      redirect_to store_index_url, notice: 'Your cart is empty'
+      redirect_to @current_cart, notice: 'Your cart is empty'
       return
     end
-    if @current_user.nil?
-      @order = Order.new
-    else
+    if @current_user
       @order = Order.new(:name => @current_user.name)
+    else
+      @order = Order.new
     end
 
   end

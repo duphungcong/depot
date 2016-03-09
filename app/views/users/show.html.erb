@@ -1,13 +1,13 @@
-<div class="col"><p id="notice"><%= notice %></p></div>
+<div class="col">
+  <h2>User detail</h2>
+</div>
 
 <div class="col">
-  User details:
   <p>
     <strong>Name:</strong>
     <%= @user.name %>
   </p>
 
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
 
 </div>

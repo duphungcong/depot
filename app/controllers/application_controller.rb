@@ -5,5 +5,19 @@ class ApplicationController < ActionController::Base
 
   include CurrentCart, CurrentUser
   before_action :set_current_cart, :get_current_user
+
+  protected
+
+    def authorize_member
+      if @current_user.nil?
+        redirect_to login_url, notice: 'Please log in'
+      end
+    end
+
+    def authorize_admin
+      if @current_user and @current_user.is_admin == false
+        redirect_to login_url, notice: 'Please log in as admin'
+      end
+    end
   
 end
