@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize_admin
-      if @current_user and @current_user.is_admin == false
+      if @current_user.nil? or @current_user.is_admin == false
         redirect_to login_url, notice: 'Please log in as admin'
       end
     end
