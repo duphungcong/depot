@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
   def new
     if @current_cart.line_items.empty?
       redirect_to @current_cart, notice: 'Your cart is empty'
-      return
     end
     if @current_user
       @order = Order.new(:name => @current_user.name)

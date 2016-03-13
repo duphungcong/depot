@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   def new
     if @current_user
       redirect_to users_url, notice: 'Sorry, you must log out first'
-      return
     end
     @user = User.new
   end

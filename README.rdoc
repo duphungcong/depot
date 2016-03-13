@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* This application follows the book "Agile Web Development with Rails 4" with some customized points.
+* This application follows the book "Agile Web Development with Rails 4" with some customized points (For study)
 
 * Ruby version
 2.30
