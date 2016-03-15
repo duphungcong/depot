@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize_admin, only: [:index, :destroy]
+  before_action :authorize_member, only: [:show, :edit]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: "User #{ @user.name } was successfully created" }
         format.json { render :show, status: :created, location: @user }
       else
@@ -58,10 +60,15 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+      unless @user.admin?
+        @user.destroy
+        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to users_url, notice: 'Can not delete admin user.'}
+      end
+
     end
   end
 

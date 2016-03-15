@@ -10,7 +10,7 @@ ul.topnav {
 ul.topnav li {
   float: left;
 
-  a, input, button {
+  a, input {
     display: inline-block;
     padding: 12px 12px;
     margin: 5px;
@@ -21,14 +21,9 @@ ul.topnav li {
     font-weight: bold;
   }
 
-  input {
-    border-radius: 5px;
-  }
-
-  button {
-    border-radius: 5px;
-    border-color: transparent;
-    background-color: lightgray;
+  input.search_button {
+    width: auto;
+    padding: 0.8em;
   }
 }
 

@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
       message: 'must be a URL for GIFT, JPG or PNG image'
   }
 
+  scope :search_title, -> (keyword) { where("title LIKE ?", "%#{keyword}%")}
+
   def self.lastest
     Product.order(:updated_at).last
   end

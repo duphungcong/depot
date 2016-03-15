@@ -25,7 +25,7 @@
   }
 }
 
-a.download, .button_to input {
+a.download, .button_to input, input.search_button {
   border-radius: 5px;
   border-color: transparent;
   margin-left: 0;
@@ -45,4 +45,8 @@ a.download {
 
 .button_to {
   display: inline-block;
+}
+
+span.found_string {
+  background-color: lightseagreen;
 }

@@ -1,5 +1,5 @@
 <div class="col book_filter">
-  <h1>Top eBooks</h1>
+  <h1>Books</h1>
 </div>
 
 <% @products.each do |product| %>
@@ -9,7 +9,7 @@
           <%= image_tag(product.image_url) %>
         </div>
         <div class="col description">
-          <p><%= link_to product.title, product %></p>
+          <p><%= link_to raw(add_span_tag_around_sub_string(product.title)), product %></p>
           <p><%= truncate(strip_tags(product.description), length: 440) %></p>
           <div>
             <span>Price: <%= number_to_currency(product.price) %></span>

@@ -1,6 +1,11 @@
 <ul class="topnav">
   <li><%= link_to 'IT eBooks', store_path, class: 'logo' %></li>
-  <li><input type="text" placeholder="Search by Title, Author or ISBN"><button class="search click">Search</button></li>
+  <li>
+    <%= form_tag store_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search by book title' %>
+      <%= submit_tag 'Search', class: 'search_button' %>
+    <% end %>
+  </li>
   <ul class="topnav right">
     <li><%= link_to "Your cart ( #{ @current_cart.total_item } )", cart_path(@current_cart) %></li>
     <% if @current_user %>
