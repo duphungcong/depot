@@ -1,0 +1,7 @@
+<% product.reviews.desc.each do |review| %>
+    <p><strong><%= review.score %>/5 - <%= review.title %></strong></p>
+    <p>By <strong><%= review.user.name %></strong> on <%= review.updated_at %></p>
+    <p><%= truncate(strip_tags(review.content), length: 540) %></p>
+    <p><%= link_to 'Read more', product_review_path(product, review) %></p>
+    <br>
+<% end %>

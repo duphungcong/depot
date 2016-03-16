@@ -25,7 +25,7 @@
   }
 }
 
-a.download, .button_to input, input.search_button {
+a.download, .button_to input, input.search_button, a.review {
   border-radius: 5px;
   border-color: transparent;
   margin-left: 0;
@@ -36,6 +36,12 @@ a.download, .button_to input, input.search_button {
 
 a.download {
   background-color: lightseagreen;
+  padding: 0.7em;
+}
+
+a.review {
+  border: 1px solid gray;
+  background-color: lightgray;
   padding: 0.7em;
 }
 

@@ -54,3 +54,14 @@
     </div>
   </div>
 </div>
+
+<div class="col">
+  <p><%= link_to 'Review this book', new_product_review_path(product_id: @product), class: 'review' %></p>
+</div>
+
+<div class="col review_list">
+  <h2>Customer Reviews</h2>
+  <%= render partial: 'reviews/index', locals: { product: @product} %>
+</div>
+
+

@@ -7,26 +7,22 @@ Things you may want to cover:
 
 * This application follows the book "Agile Web Development with Rails 4" with some customized points (For study)
 
-* Ruby version
-2.30
+* Ruby version : 2.30
 
-* System dependencies
-Database: SQLite3
+* System dependencies: Database SQLite3
 
 * Configuration: Run below commands step by step to setup
-- bundler install // install gem
-- rake db:create  // database creation
-- rake db:migrate // database migration
-- rake db:seed    // database init sample data
-- rails s         // run server
+bundler install // install gem
+rake db:create  // database creation
+rake db:migrate // database migration
+rake db:seed    // database init sample data
+rails s         // run server
 
-- Go to address http://localhost:3000 to see application running
-- Login:
-+ as admin (user: admin, password: 123)
-+ as member (user: guest, password: 123)
+Go to address http://localhost:3000 to see application running
+Login:
+As admin (user: admin, password: 123)
+As member (user: guest, password: 123)
 
 * Note
-- Search and Review book functions is coming soon.
-- Member and Admin authorization are still not clearly. Waiting for fix.
 
 Have fun!

@@ -8,6 +8,7 @@
     <%= @user.name %>
   </p>
 
-  <%= link_to 'Edit', edit_user_path(@user) %>
+  <p><%= link_to 'Edit your profile', edit_user_path(@user) %></p>
+  <p><%= link_to 'Your book reviews', review_by_user_path %></p>
 
 </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'admin' => 'admin#index'
 
   controller :sessions do
@@ -12,7 +13,11 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   get 'store/index'
-  resources :products
+  resources :products do
+    resources :reviews
+  end
+
+  get 'review_by_user' => 'reviews#review_by_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

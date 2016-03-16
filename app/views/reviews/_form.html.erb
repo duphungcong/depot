@@ -1,0 +1,29 @@
+<%= form_for(@review, { :url => form_submit_url(@review) } ) do |f| %>
+    <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from saved:</h2>
+
+          <ul>
+          <% @review.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :content %>
+      <%= f.text_area(:content, rows: 15) %>
+    </div>
+    <div class="field">
+      <%= f.label :score, 'Rate' %>
+      <%= f.select :score, Review::REVIEW_SCORES, prompt: 'Select review score' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
