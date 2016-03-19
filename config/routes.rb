@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :line_items, only: [:create, :update, :destroy]
-  resources :carts
+  resources :carts, only: [:show, :destroy]
   get 'store/index'
   resources :products do
     resources :reviews

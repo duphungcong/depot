@@ -10,11 +10,11 @@
       <th>Quantity</th>
     </tr>
     <% @cart.line_items.each do |item| %>
-    <tr>
-      <td><%= item.product.title %></td>
-      <td><%= number_to_currency(item.product.price) %></td>
-      <td><%= item.quantity %></td>
-    </tr>
+        <tr>
+          <td><%= item.product.title %></td>
+          <td><%= number_to_currency(item.product.price) %></td>
+          <td><%= item.quantity %></td>
+        </tr>
     <% end %>
   </table>
   <p>Total: <b><%= number_to_currency(@cart.total_price) %></b></p>

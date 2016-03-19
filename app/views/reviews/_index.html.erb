@@ -1,7 +1,23 @@
 <% product.reviews.desc.each do |review| %>
-    <p><strong><%= review.score %>/5 - <%= review.title %></strong></p>
+    <%= content_tag 'span', '', class: 'vote', id: "vote-#{ review.id }", data: { score: review.score, id: review.id } %>
+    <strong><%= review.title %></strong>
+    <div class="abc-<%= review.id  %>"></div>
     <p>By <strong><%= review.user.name %></strong> on <%= review.updated_at %></p>
     <p><%= truncate(strip_tags(review.content), length: 540) %></p>
     <p><%= link_to 'Read more', product_review_path(product, review) %></p>
     <br>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.vote').each(function() {
+      var id = $(this).data('id')
+      var score = $(this).data('score')
+      $('#vote-'+ id).raty({
+        score: score,
+        path: '/assets',
+        readOnly: true
+      })
+    });
+  });
+</script>

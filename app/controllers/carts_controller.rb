@@ -1,49 +1,16 @@
 class CartsController < ApplicationController
-  before_action :authorize_admin, except: [:show, :create, :destroy]
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_admin, except: [:show, :destroy]
+  before_action :set_cart, only: [:show, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-
-  # GET /carts
-  def index
-    @carts = Cart.all
-  end
 
   # GET /carts/1
   def show
   end
 
-  # GET /carts/new
-  def new
-    @cart = Cart.new
-  end
-
-  # GET /carts/1/edit
-  def edit
-  end
-
-  # POST /carts
-  def create
-    @cart = Cart.new(cart_params)
-      if @cart.save
-        redirect_to @cart, notice: 'Cart was successfully created'
-      else
-        render :new
-      end
-  end
-
-  # PATCH/PUT /carts/1
-  def update
-      if @cart.update(cart_params)
-        redirect_to @cart, notice: 'Cart was successfully updated'
-      else
-        render :edit
-      end
-  end
-
   # DELETE /carts/1
   def destroy
     @cart.destroy
-    redirect_to store_url, notice: 'Cart was successfully destroyed'
+    redirect_to store_url, notice: 'Cart was successfully emptyed'
   end
 
   private

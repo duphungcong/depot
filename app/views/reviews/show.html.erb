@@ -1,6 +1,17 @@
 <div class="col">
   <p><strong>Title:</strong> <%= @review.title %></p>
   <p><strong>Content:</strong> <%= @review.content %></p>
-  <p><strong>Score:</strong> <%= @review.score %></p>
+  <p><strong>Score:</strong><%= content_tag 'span', '', id: 'vote', data: { score: @review.score } %></p>
   <p><%= link_to 'Back', @review.product %></p>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var score = $('#vote').data('score')
+    $('#vote').raty({
+      score: score,
+      path: '/assets',
+      readOnly: true
+    });
+  });
+</script>
