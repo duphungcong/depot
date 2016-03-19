@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160315154318) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,9 +30,9 @@ ActiveRecord::Schema.define(version: 20160315154318) do
     t.integer  "order_id"
   end
 
-  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
-  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
-  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.string   "name"
@@ -59,8 +62,8 @@ ActiveRecord::Schema.define(version: 20160315154318) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "reviews", ["product_id"], name: "index_reviews_on_product_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["product_id"], name: "index_reviews_on_product_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -70,4 +73,9 @@ ActiveRecord::Schema.define(version: 20160315154318) do
     t.boolean  "admin_enabled",   default: false
   end
 
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "orders"
+  add_foreign_key "line_items", "products"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
 end
