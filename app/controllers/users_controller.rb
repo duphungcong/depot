@@ -4,19 +4,17 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
-  # GET /users.json
   def index
     @users = User.order(:name)
   end
 
   # GET /users/1
-  # GET /users/1.json
   def show
   end
 
   # GET /users/new
   def new
-    if @current_user
+    if current_user
       redirect_to users_url, notice: 'Sorry, you must log out first'
     end
     @user = User.new
@@ -27,48 +25,32 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: "User #{ @user.name } was successfully created" }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user, notice: "User #{ @user.name } was successfully created"
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User #{ @user.name } was successfully updated" }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      redirect_to @user, notice: "User #{ @user.name } was successfully updated"
+    else
+      render :edit
     end
   end
 
   # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
-    respond_to do |format|
-      unless @user.admin?
-        @user.destroy
-        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to users_url, notice: 'Can not delete admin user.'}
-      end
-
+    unless @user.admin?
+      @user.destroy
+      redirect_to users_url, notice: 'User was successfully destroyed.'
+    else
+      redirect_to users_url, notice: 'Can not delete admin user.'
     end
   end
 

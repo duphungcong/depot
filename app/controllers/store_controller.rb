@@ -3,5 +3,4 @@ class StoreController < ApplicationController
     @products = Product.where(nil) # creates an anonymos scope
     @products = @products.search_title(params[:search]) if params[:search].present?
   end
-
 end

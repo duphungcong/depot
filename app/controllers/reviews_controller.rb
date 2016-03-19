@@ -4,29 +4,24 @@ class ReviewsController < ApplicationController
 
   # list reviews by user
   def review_by_user
-    @reviews = Review.where(user_id: @current_user.id)
+    @reviews = Review.where(user_id: current_user.id)
   end
 
   def show
   end
 
   def new
-    @review = Review.new
+    product = Product.find(params[:product_id])
+    @review = product.reviews.new
   end
 
   def create
     product = Product.find(params[:product_id])
-    @review = product.reviews.build(user: @current_user)
-    @review.title = review_params[:title]
-    @review.content = review_params[:content]
-    @review.score = review_params[:score]
-
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review.product, notice: 'Thanks to review this book' }
-      else
-        format.html { render :new }
-      end
+    @review = product.reviews.build(review_params.merge(user: current_user))
+    if @review.save
+      redirect_to @review.product, notice: 'Thanks to review this book'
+    else
+      render :new
     end
   end
 
@@ -34,20 +29,16 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to product_review_path(@review.product, @review) , notice: 'Review was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @review.update(review_params)
+      redirect_to product_review_path(@review.product, @review) , notice: 'Review was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @review.destroy
-    respond_to do |format|
-      format.html { redirect_to review_by_user_path, notice: 'Your review was successfully deleted.'}
-    end
+    redirect_to review_by_user_path, notice: 'Your review was successfully deleted.'
   end
 
   private

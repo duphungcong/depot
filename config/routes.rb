@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :orders
-  resources :line_items
+  resources :line_items, only: [:create, :update, :destroy]
   resources :carts
   get 'store/index'
   resources :products do
